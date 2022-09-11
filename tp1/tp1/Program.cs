@@ -4,11 +4,6 @@ using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-Console.WriteLine("LIBRERIA MUNICIPAL");
-Console.Write("Press any key to continue . . . ");
-Console.ReadKey(true);
-
-
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();

@@ -17,7 +17,7 @@ namespace Infrastructure.Persistence
         public DbSet<StudentCourse> StudentCourses { get; set; }
 
         //constructor
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base() { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {}
         //No sobreescribo el metodo porque lo INYECTO en Program
 

@@ -1,6 +1,10 @@
 using Application.Interfaces;
+using Application.UseCase.Students;
 using Application.UseCase.Students.GetAll;
+using Infrastructure.Command;
 using Infrastructure.Persistence;
+using Infrastructure.Querys;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -15,6 +19,12 @@ builder.Services.AddSwaggerGen();
 ////bd
 var conectionString = builder.Configuration["ConectionString"];
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conectionString));
+
+//inyectar la interfaz
+builder.Services.AddScoped<IStudentServices, StudentServices>();
+builder.Services.AddScoped<IStudentQuery, StudentQuery>();
+builder.Services.AddScoped<IStudentCommand, StudentCommand>();
+
 
 // agregar la dependencia <singleton,scope o transient> 
 builder.Services.AddTransient<IServicesGetAll, ServicesGetAll>();
